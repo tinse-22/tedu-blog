@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TeduBlog.Api;
 using TeduBlog.Core.Domain.Identity;
+using TeduBlog.Core.Models.Content;
 using TeduBlog.Core.Repositories;
 using TeduBlog.Core.SeedWorks;
 using TeduBlog.Data;
@@ -63,6 +64,9 @@ foreach (var service in services)
         builder.Services.Add(new ServiceDescriptor(directInterface, service, ServiceLifetime.Scoped));
     }
 }
+
+//Auto mapper
+builder.Services.AddAutoMapper(typeof(PostInListDto));
 
 //Default configuration for ASP.NET CORE
 builder.Services.AddControllers();
